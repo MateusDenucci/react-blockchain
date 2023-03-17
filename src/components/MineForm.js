@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function MineBlock({ handleMining }) {
+function MineForm({ handleMining }) {
   const [blockPayload, setBlockPayload] = useState("");
 
   const handleSubmit = (e) => {
@@ -25,4 +25,4 @@ function MineBlock({ handleMining }) {
   );
 }
 
-export default MineBlock;
+export default MineForm;

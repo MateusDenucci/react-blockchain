@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DisplayBlockchain from "../components/DisplayBlockchain";
-import MineBlock from "../components/MineBlock";
+import MineForm from "../components/MineForm";
 import getSHA256Hash from "../utils/sha256";
 import miningGif from "../images/mining.gif";
 
@@ -28,7 +28,7 @@ function MiningPage() {
   return (
     <div>
       <h1>Blockchain toy</h1>
-      <MineBlock handleMining={handleMining} />
+      <MineForm handleMining={handleMining} />
       <br />
       {isMining && <img width={60} alt="Mining gif" src={miningGif} />}
       <hr></hr>
