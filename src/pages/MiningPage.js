@@ -28,7 +28,7 @@ function MiningPage() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1 className="text-center mb-5">Blockchain Toy</h1>
       <MineForm handleMining={handleMining} />
       {isMining && (
