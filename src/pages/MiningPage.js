@@ -13,10 +13,12 @@ function MiningPage() {
   const handleMining = async (payload) => {
     setIsMining(true);
     let nonce = 0;
-
-    let hash = await getSHA256Hash(payload);
+    const previousHash =
+      blockchain.length > 0 ? blockchain[blockchain.length - 1].hash : "";
+    const infoToHash = payload + previousHash;
+    let hash = await getSHA256Hash(infoToHash);
     while (!hash.endsWith("0".repeat(MINING_DIFICULTY))) {
-      hash = await getSHA256Hash(payload + nonce.toString());
+      hash = await getSHA256Hash(infoToHash + nonce.toString());
       nonce++;
     }
 
@@ -31,7 +33,7 @@ function MiningPage() {
 
   return (
     <div className="container">
-      <h1 className="text-center mb-5">Blockchain Toy</h1>
+      <h1 className="text-center mb-5">Toy Blockchain</h1>
       <MineForm handleMining={handleMining} />
       {isMining && (
         <div className="d-flex justify-content-center mb-2 mt-2">
