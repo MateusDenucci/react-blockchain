@@ -1,5 +1,5 @@
 function DisplayBlockchain({ blockchain }) {
-  const renderedBlockchain = blockchain.map((block) => {
+  const renderedBlockchain = blockchain.reverse().map((block) => {
     return (
       <div key={block.hash} className="row justify-content-md-center">
         <div className="col-md-auto">
