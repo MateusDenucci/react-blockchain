@@ -1,21 +1,16 @@
 function DisplayBlockchain({ blockchain }) {
   const renderedBlockchain = blockchain.map((block) => {
     return (
-      <div
-        key={block.hash}
-        style={{
-          borderStyle: "solid",
-          width: "800px",
-          margin: "10px 0px 0px 10px",
-        }}
-      >
-        <p>paylod: {block.payload}</p>
-        <p>nonce: {block.nonce}</p>
-        <p>hash: {block.hash}</p>
+      <div key={block.hash} className="card mb-3" style={{ width: "40%" }}>
+        <div className="card-body">
+          <h6 className="card-title">{block.hash}</h6>
+          <h7 className="card-subtitle mb-2 text-muted">{block.nonce}</h7>
+          <p className="card-text">{block.payload}</p>
+        </div>
       </div>
     );
   });
-  return <div>Blockchain here: {renderedBlockchain}</div>;
+  return <div>{renderedBlockchain}</div>;
 }
 
 export default DisplayBlockchain;

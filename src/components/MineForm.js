@@ -10,16 +10,22 @@ function MineForm({ handleMining }) {
   };
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit}>
-        <textarea
-          rows={5}
-          maxLength={200}
-          onChange={(e) => setBlockPayload(e.target.value)}
-          value={blockPayload}
-        ></textarea>
-        <hr></hr>
-        <button>Mine now</button>
+        <div className="row justify-content-start">
+          <div className="form-floating col">
+            <textarea
+              className="form-control"
+              onChange={(e) => setBlockPayload(e.target.value)}
+              value={blockPayload}
+              style={{ height: "200px", width: "100%" }}
+            ></textarea>
+            <label>Insert block payload here</label>
+          </div>
+          <div className="col align-self-end">
+            <button className="btn btn-primary btn-lg">Mine now</button>
+          </div>
+        </div>
       </form>
     </div>
   );

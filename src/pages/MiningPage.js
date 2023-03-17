@@ -4,6 +4,8 @@ import MineForm from "../components/MineForm";
 import getSHA256Hash from "../utils/sha256";
 import miningGif from "../images/mining.gif";
 
+const MINING_DIFICULTY = 4;
+
 function MiningPage() {
   const [blockchain, setBlockchain] = useState([]);
   const [isMining, setIsMining] = useState(false);
@@ -12,7 +14,7 @@ function MiningPage() {
     setIsMining(true);
     let nonce = 0;
     let hash = await getSHA256Hash(payload);
-    while (!hash.endsWith("0000")) {
+    while (!hash.endsWith("0".repeat(MINING_DIFICULTY))) {
       hash = await getSHA256Hash(payload + nonce.toString());
       nonce++;
     }
@@ -27,10 +29,18 @@ function MiningPage() {
 
   return (
     <div>
-      <h1>Blockchain toy</h1>
+      <h1 className="text-center mb-5">Blockchain Toy</h1>
       <MineForm handleMining={handleMining} />
-      <br />
-      {isMining && <img width={60} alt="Mining gif" src={miningGif} />}
+      {isMining && (
+        <div className="d-flex justify-content-center mb-2 mt-2">
+          <img
+            className="img-responsive"
+            width={300}
+            alt="Mining gif"
+            src={miningGif}
+          />
+        </div>
+      )}
       <hr></hr>
       <DisplayBlockchain blockchain={blockchain} />
     </div>
