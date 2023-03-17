@@ -19,11 +19,17 @@ function MineForm({ handleMining }) {
                 className="form-control"
                 onChange={(e) => setBlockPayload(e.target.value)}
                 value={blockPayload}
-                style={{ height: "200px", width: "100%" }}
+                style={{
+                  height: "200px",
+                  width: "100%",
+                }}
                 placeholder="Insert block payload here"
                 id="blockPayload"
+                maxLength={200}
               ></textarea>
-              <label htmlFor="blockPayload">Insert block payload here</label>
+              <label htmlFor="blockPayload">
+                Insert block payload here ({200 - blockPayload.length})
+              </label>
             </div>
           </div>
           <div className="col align-self-end">

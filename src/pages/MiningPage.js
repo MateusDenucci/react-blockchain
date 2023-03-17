@@ -13,18 +13,20 @@ function MiningPage() {
   const handleMining = async (payload) => {
     setIsMining(true);
     let nonce = 0;
+
     let hash = await getSHA256Hash(payload);
     while (!hash.endsWith("0".repeat(MINING_DIFICULTY))) {
       hash = await getSHA256Hash(payload + nonce.toString());
       nonce++;
     }
-    setIsMining(false);
+
     const block = {
       payload,
       nonce,
       hash,
     };
     setBlockchain([...blockchain, block]);
+    setIsMining(false);
   };
 
   return (
