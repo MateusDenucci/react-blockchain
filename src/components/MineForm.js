@@ -21,7 +21,6 @@ function MineForm({ handleMining }) {
                 value={blockPayload}
                 style={{
                   height: "200px",
-                  width: "100%",
                 }}
                 placeholder="Insert block payload here"
                 id="blockPayload"

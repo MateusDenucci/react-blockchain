@@ -3,10 +3,7 @@ function DisplayBlockchain({ blockchain }) {
     return (
       <div key={block.hash} className="row justify-content-md-center">
         <div className="col-md-auto">
-          <div
-            className="card mb-3 p-1"
-            style={{ width: "40em", whiteSpace: "pre-line" }}
-          >
+          <div className="card mb-3 p-1" style={{ whiteSpace: "pre-line" }}>
             <div className="card-body">
               <h6 className="card-title">{block.hash}</h6>
               <p className="card-subtitle mb-2 text-muted">{block.nonce}</p>
